@@ -46,6 +46,7 @@ public class CustomListTest {
     void testHasCity() {
         CustomList cityList = MockCityList();
         City mock = (City) mockCity();
+        cityList.addCity(mock);
         // test if the list size has changed
         assertEquals(1, cityList.getCount());
         assertTrue(cityList.hasCity(mock));
@@ -53,6 +54,8 @@ public class CustomListTest {
         City city = new City("Test","Test2");
         assertFalse(cityList.hasCity(city));
     }
+
+
 
 
 
