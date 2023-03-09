@@ -56,6 +56,34 @@ public class CustomListTest {
     }
 
 
+    @Test
+    void testDelete() throws Exception {
+        CustomList cityList = MockCityList();
+        // add a sample city
+        City city = new City("Test","Test2");
+        City mock = mockCity();
+        cityList.addCity(city);
+        cityList.addCity(mock);
+        assertEquals(2, cityList.getCount());
+
+        // test the delete functionality
+        cityList.deleteCity(mock);
+        assertEquals(1, cityList.getCount());
+        assertFalse(cityList.hasCity(mockCity()));
+
+        // check if the sample city is still there
+        assertTrue(cityList.hasCity(city));
+
+        // test if the exception works
+        try{
+            cityList.deleteCity(mock);
+        }
+        catch(Exception e) {
+            assertEquals("This city is not in the list, failed to delete.", e.getMessage());
+        }
+    }
+
+
 
 
 
