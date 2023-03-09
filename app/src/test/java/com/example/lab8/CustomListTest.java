@@ -83,7 +83,13 @@ public class CustomListTest {
         }
     }
 
-
+    @Test
+    void countCities() {
+        CustomList cityList = MockCityList();
+        City city = new City("Test","Test2");
+        cityList.addCity(city);
+        assertEquals(1, cityList.getCount());
+    }
 
 
 
